@@ -14,7 +14,9 @@ imports: [BrowserModule,FormsModule,ReactiveFormsModule];
     FormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

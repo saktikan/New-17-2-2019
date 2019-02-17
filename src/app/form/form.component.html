@@ -1,3 +1,50 @@
-<p>
-  form works!
-</p>
+<form [formGroup]="fromGroup" (ngSubmit)="onSubmit(fromGroup)">
+    <div>
+      <input
+      type="text"
+      formControlName="firstName"
+      placeholder="first name"
+      >
+      <label style = color:tomato  
+      *ngIf ="fromGroup.get('firstName').invalid && fromGroup.get('firstName').errors
+      ['required']">Required</label>
+    </div>
+    <div>
+      <input
+      type="text"
+      formControlName="lastname"
+      placeholder="last name"
+      >
+      <label style="color:blueviolet"   
+      *ngIf = "fromGroup.get('lastname').invalid && fromGroup.get('lastname').errors
+      ['minlength'] ">min is  3</label>
+      <label style="color:rgb(226, 43, 89)"   
+      *ngIf = "fromGroup.get('lastname').invalid && fromGroup.get('lastname').errors
+      ['required'] ">Required</label>
+    </div>
+    <div>
+        <input
+        type="text"
+        formControlName="email"
+        placeholder="e-mail"
+        >
+        <label style="color:rgb(226, 49, 43)"   
+      *ngIf = "fromGroup.get('email').invalid && fromGroup.get('email').errors
+      ['email'] ">Required email</label>
+        
+      </div>
+      <div>
+          <input
+          type="number"
+          formControlName="age" max="100"  
+         
+          >
+          <label style="color:rgb(226, 49, 43)"   
+      *ngIf = "fromGroup.get('age').invalid && fromGroup.get('age').errors
+      ['min'] ">Required min</label>
+      <label style="color:rgb(226, 49, 43)"   
+      *ngIf = "fromGroup.get('age').invalid && fromGroup.get('age').errors
+      ['max'] ">Required max</label>
+        </div>
+    <button>Submit</button>
+  </form>
